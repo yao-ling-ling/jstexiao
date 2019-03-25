@@ -1,0 +1,24 @@
+@charset "utf-8";
+*{
+	margin: 0px;
+	margin: 0px;
+}
+.show{
+	width: 360px;
+	height: 430px;
+	border: 1px solid black;
+	margin: 100px auto;
+}
+.show_up{
+	width: 360px;
+	height: 360px;
+	background-image: url(../img/01big.jpg);
+}
+.show_down{
+	width: 360px;
+	height: 70px;
+}
+img{
+	width: 72px;
+	float: left;
+}

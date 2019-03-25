@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>全选</button>
+		<button>取消</button>
+		<button>反选</button><br />
+		<label>篮球:</label><input checked="" type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<label>篮球:</label><input  type="checkbox" name="hobby" /><br />
+		<script>
+			var btn=document.getElementsByTagName("button");
+			var checkboxs=document.getElementsByTagName("input");
+//			console.log(btn);
+            btn[0].onclick=function(){
+            	for(var i=0; i<checkboxs.length; i++){
+//          		checkboxs(i).setAttribute("checked",true);
+                    checkboxs[i].checked=true;
+            	}
+            }
+			btn[1].onclick=function(){
+            	for(var i=0; i<checkboxs.length; i++){
+                    checkboxs[i].checked=false;
+            	}
+            }
+			btn[2].onclick=function(){
+            	for(var i=0; i<checkboxs.length; i++){
+                    (checkboxs[i].checked==true)? 
+                    (checkboxs[i].checked=false):(checkboxs[i].checked=true);
+            	}
+            }
+		</script>
+	</body>
+</html>

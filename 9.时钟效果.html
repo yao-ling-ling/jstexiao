@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.clock {
+				width: 600px;
+				height: 600px;
+				margin: 0 auto;
+				background-image: url(img/clock.jpg);
+				position: relative;
+			}
+			
+			.clock div {
+				width: 600px;
+				height: 600px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#hour {
+				background: url(img/hour.png) no-repeat center center;
+			}
+			
+			#minute {
+				background: url(img/minute.png) no-repeat center center;
+			}
+			
+			#second {
+				background: url(img/second.png) no-repeat center center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="clock">
+			<div id="hour"></div>
+			<div id="minute"></div>
+			<div id="second"></div>
+		</div>
+		<script>
+			window.onload = function() {
+				var hourzhen = document.getElementById("hour");
+				var minutezhen = document.getElementById("minute");
+				var secondzhen = document.getElementById("second");
+
+				function clock() {
+					//1.获取当前时间
+					var date = new Date();
+					//获取毫秒数
+					var ms = date.getMilliseconds();
+
+					var second = date.getSeconds() + ms / 1000;
+					var minute = date.getMinutes() + second / 60;
+					var hour = date.getHours() % 12 + minute / 60;
+
+					//hourzhen.style.transfrom="rotate("+hour*30+"deg)";
+					//minutezhen.style.transfrom="rotate("+minute*6+"deg)";
+					//secondzhen.style.transfrom="rotate("+second*6+"deg)";
+					//谷歌兼容性写法
+					hourzhen.style.webkitTransform = "rotate(" + hour * 30 + "deg)";
+					minutezhen.style.webkitTransform = "rotate(" + minute * 6 + "deg)";
+					secondzhen.style.webkitTransform = "rotate(" + second * 6 + "deg)";
+
+				}
+				setInterval(clock, 1000);
+			}
+		</script>
+	</body>
+
+</html>

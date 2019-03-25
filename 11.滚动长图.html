@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 512px;
+				height: 400px;
+				margin: 100px auto;
+				border: 1px solid black;
+				overflow: hidden;
+				position: relative;
+			}
+			.box div{
+				width: 100%;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				cursor: pointer;
+			}
+			.box div.up{
+				top: 0;
+			}
+			.box div.down{
+				bottom: 0;
+			}
+			img{
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="img/mi.png" alt="###"/>
+			<div class="item  up"></div>
+			<div class="item  down"></div>
+		</div>
+		<script>
+			window.onload=function(){
+				var img=document.getElementsByTagName("img")[0];
+				var item=document.getElementsByClassName("item");
+				var num=0;
+				var timer=null;
+				item[0].onmouseover=function(){
+					clearInterval(timer);
+					  timer=setInterval(function(){
+						if(num>-1070){
+							num--;
+							img.style.top=num +"px";
+						}else{
+							clearInterval(timer);
+						}
+					},2)
+				}
+				item[1].onmouseover=function(){
+					clearInterval(timer);
+					 timer=setInterval(function(){
+						if(num<0){
+							num++;
+							img.style.top=num +"px";
+						}else{
+							clearInterval(timer);
+						}
+					},2)
+			}
+		}
+		</script>
+	</body>
+</html>
